@@ -5,7 +5,6 @@ import {
   FiLinkedin,
   FiMail,
   FiArrowUp,
-  FiHeart,
 } from "react-icons/fi";
 import { personal } from "@/data";
 import type Lenis from "@studio-freight/lenis";
