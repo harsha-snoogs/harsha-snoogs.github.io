@@ -1,0 +1,49 @@
+{
+  "personal": {
+    "name": "Harshavardhan S",
+    "title": "Senior Frontend Engineer",
+    "tagline": "Crafting High-Performance Web Experiences",
+    "location": "Bangalore, India",
+    "email": "shv.harshan68@gmail.com",
+    "phone": "+91 9655446905",
+    "summary": "Frontend Software Engineer with 5+ years of experience building scalable, high-performance web applications using React.js, Next.js, TypeScript and modern UI frameworks. Strong in performance tuning, reusable component design, accessibility, cross-browser consistency and high quality frontend architecture.",
+    "social": {
+      "github": "https://github.com/harsha-snoogs",
+      "linkedin": "https://linkedin.com/in/harsha-vardhan"
+    }
+  },
+  "stats": [
+    {
+      "id": "experience",
+      "value": "5+",
+      "label": "Years Experience",
+      "icon": "FaBriefcase"
+    },
+    {
+      "id": "users",
+      "value": "500K+",
+      "label": "Users Impacted",
+      "icon": "FaUsers"
+    },
+    {
+      "id": "reviews",
+      "value": "100+",
+      "label": "PR Reviews",
+      "icon": "FaCodeBranch"
+    },
+    {
+      "id": "performance",
+      "value": "35%",
+      "label": "Performance Gains",
+      "icon": "FaRocket"
+    }
+  ],
+  "navigation": [
+    { "id": "home", "label": "Home", "href": "#home" },
+    { "id": "about", "label": "About", "href": "#about" },
+    { "id": "skills", "label": "Skills", "href": "#skills" },
+    { "id": "experience", "label": "Experience", "href": "#experience" },
+    { "id": "projects", "label": "Projects", "href": "#projects" },
+    { "id": "achievements", "label": "Achievements", "href": "#achievements" }
+  ]
+}

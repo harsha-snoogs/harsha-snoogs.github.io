@@ -1,0 +1,68 @@
+{
+  "experience": [
+    {
+      "id": "loch",
+      "company": "Loch Inc | TradeFox",
+      "role": "Frontend Engineer",
+      "location": "Remote",
+      "startDate": "Jan 2026",
+      "endDate": "Present",
+      "description": [
+        "Built real-time arbitrage detection engine integrating REST APIs from Polymarket and Kalshi exchanges for cross-platform trading opportunities",
+        "Developed WebSocket services for live price feeds, order book data and real-time trade execution",
+        "Built portfolio management dashboard with real-time profit and loss (P&L) tracking and position management",
+        "Designed and developed reusable React component library including data tables, interactive charts, filters and responsive UI layouts",
+        "Implemented state management using Zustand and React Query for optimal application performance",
+        "Integrated GitHub OAuth authentication using NextAuth with JWT session management"
+      ],
+      "technologies": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Zustand", "React Query", "WebSocket", "Web3", "Vercel"],
+      "achievements": [
+        { "metric": "Real-time", "value": "< 100ms", "description": "WebSocket latency for live trading" },
+        { "metric": "Components", "value": "50+", "description": "Reusable UI components built" }
+      ]
+    },
+    {
+      "id": "fyers",
+      "company": "Fyers Securities",
+      "role": "Senior Software Engineer",
+      "location": "Bangalore, India",
+      "startDate": "May 2022",
+      "endDate": "Dec 2025",
+      "description": [
+        "Revamped a trading platform's charting module with vanilla JavaScript, improving rendering time by 20%",
+        "Integrated the TradingView SDK, enhancing functionality for 500,000+ users",
+        "Optimized candle-generation logic, reducing code complexity by 40%",
+        "Mentored 2 team members, increasing productivity by 25%",
+        "Conducted 100+ PR reviews, ensuring a 95% success rate for first-time approvals",
+        "Built and maintained React applications for internal organization usage",
+        "Improved page load times by 35% through React code-splitting"
+      ],
+      "technologies": ["React.js", "Next.js", "JavaScript", "Vanilla JS", "TradingView SDK", "WebSocket", "REST API", "Git"],
+      "achievements": [
+        { "metric": "Performance", "value": "20%", "description": "Rendering time improvement" },
+        { "metric": "Users", "value": "500K+", "description": "Users benefited from TradingView integration" },
+        { "metric": "Code Quality", "value": "40%", "description": "Reduction in code complexity" },
+        { "metric": "Page Load", "value": "35%", "description": "Faster load times via code-splitting" }
+      ]
+    },
+    {
+      "id": "infosys",
+      "company": "Infosys Limited | Bank of America",
+      "role": "Senior Systems Engineer",
+      "location": "Bangalore, India",
+      "startDate": "Jan 2020",
+      "endDate": "May 2022",
+      "description": [
+        "Delivered projects 100% on time by ensuring seamless team coordination and effective communication",
+        "Supported team efforts based on capacity, completing tasks 15% faster and maintaining project efficiency",
+        "Improved application scalability by 30% and performance by 25% within the React.js framework"
+      ],
+      "technologies": ["React.js", "JavaScript", "ASP.NET", "REST API", "HTML5", "CSS3", "Git", "Agile", "JIRA"],
+      "achievements": [
+        { "metric": "Delivery", "value": "100%", "description": "On-time project delivery" },
+        { "metric": "Scalability", "value": "30%", "description": "Application scalability improvement" },
+        { "metric": "Performance", "value": "25%", "description": "Performance enhancement" }
+      ]
+    }
+  ]
+}

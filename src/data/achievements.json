@@ -1,0 +1,47 @@
+{
+  "achievements": [
+    {
+      "id": "performance-optimization",
+      "title": "Performance Champion",
+      "description": "Consistently delivered performance improvements across projects, achieving up to 35% faster page loads and 20% better rendering times.",
+      "icon": "FaRocket",
+      "highlight": true
+    },
+    {
+      "id": "code-quality",
+      "title": "Code Quality Leader",
+      "description": "Conducted 100+ PR reviews with 95% first-time approval rate, establishing coding standards and best practices for the team.",
+      "icon": "FaCode",
+      "highlight": true
+    },
+    {
+      "id": "mentorship",
+      "title": "Team Mentor",
+      "description": "Mentored 2 junior developers, increasing their productivity by 25% through code reviews, pair programming, and knowledge sharing.",
+      "icon": "FaUserGraduate",
+      "highlight": false
+    },
+    {
+      "id": "scale",
+      "title": "Scale Achievement",
+      "description": "Built and optimized features serving 500,000+ active users on a major trading platform with zero downtime.",
+      "icon": "FaChartLine",
+      "highlight": true
+    },
+    {
+      "id": "delivery",
+      "title": "Consistent Delivery",
+      "description": "Maintained 100% on-time project delivery record through effective planning, communication, and agile methodologies.",
+      "icon": "FaCheckCircle",
+      "highlight": false
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture Design",
+      "description": "Designed scalable frontend architectures that improved application scalability by 30% while maintaining code maintainability.",
+      "icon": "FaSitemap",
+      "highlight": false
+    }
+  ],
+  "testimonials": []
+}
