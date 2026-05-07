@@ -203,7 +203,6 @@ export function Hero() {
   }, []);
 
   const firstName = personal.name.split(" ")[0];
-  const lastName = personal.name.split(" ").slice(1).join(" ");
 
   return (
     <section
