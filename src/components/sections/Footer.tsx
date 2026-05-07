@@ -1,8 +1,14 @@
-import { useCallback } from 'react';
-import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiArrowUp, FiHeart } from 'react-icons/fi';
-import { personal } from '@/data';
-import type Lenis from '@studio-freight/lenis';
+import { useCallback } from "react";
+import { motion } from "framer-motion";
+import {
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+  FiArrowUp,
+  FiHeart,
+} from "react-icons/fi";
+import { personal } from "@/data";
+import type Lenis from "@studio-freight/lenis";
 
 declare global {
   interface Window {
@@ -12,17 +18,17 @@ declare global {
 
 const socialLinks = [
   {
-    name: 'GitHub',
+    name: "GitHub",
     href: personal.social.github,
     icon: FiGithub,
   },
   {
-    name: 'LinkedIn',
+    name: "LinkedIn",
     href: personal.social.linkedin,
     icon: FiLinkedin,
   },
   {
-    name: 'Email',
+    name: "Email",
     href: `mailto:${personal.email}`,
     icon: FiMail,
   },
@@ -33,7 +39,7 @@ export function Footer() {
     if (window.lenis) {
       window.lenis.scrollTo(0, { duration: 1.5 });
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
 
@@ -56,7 +62,7 @@ export function Footer() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="text-gradient">{personal.name.split(' ')[0]}</span>
+            <span className="text-gradient">{personal.name.split(" ")[0]}</span>
             <span className="text-primary-400">.</span>
           </motion.a>
 
@@ -72,8 +78,8 @@ export function Footer() {
               <motion.a
                 key={link.name}
                 href={link.href}
-                target={link.name !== 'Email' ? '_blank' : undefined}
-                rel={link.name !== 'Email' ? 'noopener noreferrer' : undefined}
+                target={link.name !== "Email" ? "_blank" : undefined}
+                rel={link.name !== "Email" ? "noopener noreferrer" : undefined}
                 className="p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 text-gray-400 hover:text-primary-400 hover:border-primary-500/30 active:bg-white/10 transition-all touch-target"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -97,11 +103,6 @@ export function Footer() {
 
           {/* Copyright */}
           <div className="text-center text-xs sm:text-sm text-gray-500">
-            <p className="flex items-center justify-center gap-1 flex-wrap">
-              Built with <FiHeart className="w-3 h-3 sm:w-4 sm:h-4 text-red-500" /> using
-              <span className="hidden sm:inline">React, TypeScript & Tailwind CSS</span>
-              <span className="sm:hidden">React & TypeScript</span>
-            </p>
             <p className="mt-1.5 sm:mt-2">
               © {currentYear} {personal.name}. All rights reserved.
             </p>
