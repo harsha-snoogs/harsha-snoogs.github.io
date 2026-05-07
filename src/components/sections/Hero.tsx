@@ -1,15 +1,21 @@
-import { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import gsap from 'gsap';
-import { FiGithub, FiLinkedin, FiDownload, FiArrowRight } from 'react-icons/fi';
-import { Button } from '@/components/ui';
-import { HeroBackground, ScrollIndicator } from '@/components/common';
-import { personal } from '@/data';
-import { staggerContainer } from '@/utils';
-import { StatIcon } from '@/components/ui/StatIcon';
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import gsap from "gsap";
+import { FiGithub, FiLinkedin, FiDownload, FiArrowRight } from "react-icons/fi";
+import { Button } from "@/components/ui";
+import { HeroBackground, ScrollIndicator } from "@/components/common";
+import { personal } from "@/data";
+import { staggerContainer } from "@/utils";
+import { StatIcon } from "@/components/ui/StatIcon";
 
-function AnimatedCounter({ value, suffix = '' }: { value: string; suffix?: string }) {
-  const [displayValue, setDisplayValue] = useState('0');
+function AnimatedCounter({
+  value,
+  suffix = "",
+}: {
+  value: string;
+  suffix?: string;
+}) {
+  const [displayValue, setDisplayValue] = useState("0");
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
 
@@ -20,14 +26,14 @@ function AnimatedCounter({ value, suffix = '' }: { value: string; suffix?: strin
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
-          
-          const numericValue = parseInt(value.replace(/\D/g, ''));
+
+          const numericValue = parseInt(value.replace(/\D/g, ""));
           const counter = { val: 0 };
-          
+
           gsap.to(counter, {
             val: numericValue,
             duration: 2,
-            ease: 'power2.out',
+            ease: "power2.out",
             onUpdate: () => {
               setDisplayValue(Math.floor(counter.val).toString());
             },
@@ -43,7 +49,8 @@ function AnimatedCounter({ value, suffix = '' }: { value: string; suffix?: strin
 
   return (
     <span ref={ref} className="tabular-nums">
-      {displayValue}{suffix}
+      {displayValue}
+      {suffix}
     </span>
   );
 }
@@ -55,7 +62,7 @@ function BentoStats() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, type: 'spring' }}
+        transition={{ delay: 0.5, type: "spring" }}
         whileTap={{ scale: 0.98 }}
         className="col-span-2"
       >
@@ -63,21 +70,31 @@ function BentoStats() {
           {/* Animated shine */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-primary-500/0 via-primary-500/10 to-primary-500/0"
-            animate={{ x: ['-100%', '100%'] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           />
           <div className="relative flex items-center justify-between">
             <div>
-              <p className="text-xs sm:text-sm text-primary-400 mb-1">Years of Experience</p>
+              <p className="text-xs sm:text-sm text-primary-400 mb-1">
+                Years of Experience
+              </p>
               <p className="text-4xl sm:text-5xl font-bold text-white">
                 <AnimatedCounter value="5" suffix="+" />
               </p>
             </div>
             <div className="hidden sm:block">
-              <StatIcon name="FaBriefcase" size={48} className="text-primary-400/30" />
+              <StatIcon
+                name="FaBriefcase"
+                size={48}
+                className="text-primary-400/30"
+              />
             </div>
             <div className="sm:hidden">
-              <StatIcon name="FaBriefcase" size={32} className="text-primary-400/30" />
+              <StatIcon
+                name="FaBriefcase"
+                size={32}
+                className="text-primary-400/30"
+              />
             </div>
           </div>
         </div>
@@ -87,12 +104,16 @@ function BentoStats() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, type: 'spring' }}
+        transition={{ delay: 0.6, type: "spring" }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
         <div className="h-full p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-white/10 hover:border-cyan-500/30 active:border-cyan-500/50 transition-colors bg-white/[0.02]">
-          <StatIcon name="FaUsers" size={18} className="text-cyan-400 mb-2 sm:mb-3" />
+          <StatIcon
+            name="FaUsers"
+            size={18}
+            className="text-cyan-400 mb-2 sm:mb-3"
+          />
           <p className="text-2xl sm:text-3xl font-bold text-white mb-0.5 sm:mb-1">
             <AnimatedCounter value="500" suffix="K+" />
           </p>
@@ -104,12 +125,16 @@ function BentoStats() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, type: 'spring' }}
+        transition={{ delay: 0.7, type: "spring" }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
         <div className="h-full p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-white/10 hover:border-violet-500/30 active:border-violet-500/50 transition-colors bg-white/[0.02]">
-          <StatIcon name="FaCodeBranch" size={18} className="text-violet-400 mb-2 sm:mb-3" />
+          <StatIcon
+            name="FaCodeBranch"
+            size={18}
+            className="text-violet-400 mb-2 sm:mb-3"
+          />
           <p className="text-2xl sm:text-3xl font-bold text-white mb-0.5 sm:mb-1">
             <AnimatedCounter value="100" suffix="+" />
           </p>
@@ -121,7 +146,7 @@ function BentoStats() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, type: 'spring' }}
+        transition={{ delay: 0.8, type: "spring" }}
         whileHover={{ scale: 1.01 }}
         whileTap={{ scale: 0.98 }}
         className="col-span-2"
@@ -129,7 +154,9 @@ function BentoStats() {
         <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/10 hover:border-amber-500/30 active:border-amber-500/50 transition-colors bg-white/[0.02] flex items-center justify-between">
           <div className="flex items-center gap-2 sm:gap-3">
             <StatIcon name="FaRocket" size={16} className="text-amber-400" />
-            <span className="text-xs sm:text-sm text-gray-400">Performance Gains</span>
+            <span className="text-xs sm:text-sm text-gray-400">
+              Performance Gains
+            </span>
           </div>
           <p className="text-xl sm:text-2xl font-bold text-white">
             <AnimatedCounter value="35" suffix="%" />
@@ -146,7 +173,7 @@ export function Hero() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end start'],
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
@@ -155,7 +182,7 @@ export function Hero() {
   useEffect(() => {
     if (!titleRef.current) return;
 
-    const chars = titleRef.current.querySelectorAll('.char');
+    const chars = titleRef.current.querySelectorAll(".char");
     gsap.fromTo(
       chars,
       {
@@ -169,14 +196,14 @@ export function Hero() {
         rotateX: 0,
         stagger: 0.02,
         duration: 0.6,
-        ease: 'back.out(1.5)',
+        ease: "back.out(1.5)",
         delay: 0.3,
       }
     );
   }, []);
 
-  const firstName = personal.name.split(' ')[0];
-  const lastName = personal.name.split(' ').slice(1).join(' ');
+  const firstName = personal.name.split(" ")[0];
+  const lastName = personal.name.split(" ").slice(1).join(" ");
 
   return (
     <section
@@ -186,10 +213,7 @@ export function Hero() {
     >
       <HeroBackground />
 
-      <motion.div 
-        style={{ y, opacity }}
-        className="relative z-10 w-full"
-      >
+      <motion.div style={{ y, opacity }} className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">
           <motion.div
             variants={staggerContainer}
@@ -203,33 +227,20 @@ export function Hero() {
               <h1
                 ref={titleRef}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-2"
-                style={{ perspective: '1000px' }}
+                style={{ perspective: "1000px" }}
               >
                 <span className="block text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl font-normal mb-1 sm:mb-2">
                   Hello, I'm
                 </span>
-                {firstName.split('').map((char, index) => (
+                {firstName.split("").map((char, index) => (
                   <span
                     key={`first-${index}`}
                     className="char inline-block text-gradient"
-                    style={{ transformStyle: 'preserve-3d' }}
+                    style={{ transformStyle: "preserve-3d" }}
                   >
                     {char}
                   </span>
                 ))}
-                <br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>
-                <span className="text-white">
-                  {lastName.split('').map((char, index) => (
-                    <span
-                      key={`last-${index}`}
-                      className="char inline-block"
-                      style={{ transformStyle: 'preserve-3d' }}
-                    >
-                      {char === ' ' ? '\u00A0' : char}
-                    </span>
-                  ))}
-                </span>
               </h1>
 
               {/* Title and description */}
@@ -243,9 +254,13 @@ export function Hero() {
                   <span className="text-primary-300">{personal.title}</span>
                 </h2>
                 <p className="mt-3 sm:mt-4 text-gray-400 text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  {personal.tagline}. Building{' '}
-                  <span className="text-primary-300 font-medium">scalable</span>,{' '}
-                  <span className="text-cyan-300 font-medium">high-performance</span> web experiences.
+                  {personal.tagline}. Building{" "}
+                  <span className="text-primary-300 font-medium">scalable</span>
+                  ,{" "}
+                  <span className="text-cyan-300 font-medium">
+                    high-performance
+                  </span>{" "}
+                  web experiences.
                 </p>
               </motion.div>
 
@@ -264,7 +279,7 @@ export function Hero() {
                   fullWidth
                   className="sm:w-auto"
                   onClick={() => {
-                    const element = document.getElementById('projects');
+                    const element = document.getElementById("projects");
                     if (element && window.lenis) {
                       window.lenis.scrollTo(element, { offset: -80 });
                     }
@@ -278,7 +293,7 @@ export function Hero() {
                   icon={<FiDownload className="w-4 h-4 sm:w-5 sm:h-5" />}
                   fullWidth
                   className="sm:w-auto"
-                  onClick={() => window.open('/resume.pdf', '_blank')}
+                  onClick={() => window.open("/resume.pdf", "_blank")}
                 >
                   Resume
                 </Button>
@@ -291,7 +306,9 @@ export function Hero() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4"
               >
-                <span className="text-xs sm:text-sm text-gray-500">Find me on</span>
+                <span className="text-xs sm:text-sm text-gray-500">
+                  Find me on
+                </span>
                 <div className="flex items-center gap-2 sm:gap-3">
                   <motion.a
                     href={personal.social.github}
@@ -327,7 +344,7 @@ export function Hero() {
               className="order-2"
             >
               <BentoStats />
-              
+
               {/* Tech stack */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -335,18 +352,24 @@ export function Hero() {
                 transition={{ delay: 1.2 }}
                 className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-1.5 sm:gap-2"
               >
-                {['React', 'TypeScript', 'Next.js', 'Tailwind'].map((tech, i) => (
-                  <motion.span
-                    key={tech}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1.3 + i * 0.08, type: 'spring', stiffness: 200 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium rounded-full border border-white/10 text-gray-400 hover:border-primary-500/40 hover:text-primary-400 active:border-primary-500/60 transition-colors cursor-default select-none"
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
+                {["React", "TypeScript", "Next.js", "Tailwind"].map(
+                  (tech, i) => (
+                    <motion.span
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        delay: 1.3 + i * 0.08,
+                        type: "spring",
+                        stiffness: 200,
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium rounded-full border border-white/10 text-gray-400 hover:border-primary-500/40 hover:text-primary-400 active:border-primary-500/60 transition-colors cursor-default select-none"
+                    >
+                      {tech}
+                    </motion.span>
+                  )
+                )}
               </motion.div>
             </motion.div>
           </motion.div>
