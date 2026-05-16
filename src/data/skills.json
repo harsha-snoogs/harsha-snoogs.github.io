@@ -31,8 +31,7 @@
     { "name": "JIRA", "icon": "SiJira", "category": "tools", "proficiency": 80 },
 
     { "name": "REST API", "icon": "SiOpenapiinitiative", "category": "apis", "proficiency": 92 },
-    { "name": "WebSocket", "icon": "SiSocketdotio", "category": "apis", "proficiency": 88 },
-    { "name": "Web3", "icon": "SiWeb3Dotjs", "category": "apis", "proficiency": 70 }
+    { "name": "WebSocket", "icon": "SiSocketdotio", "category": "apis", "proficiency": 88 }
   ],
   "categories": {
     "languages": "Languages",
