@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
-import { Button } from '@/components/ui';
-import { navigation, personal } from '@/data';
-import { useActiveSection } from '@/hooks';
-import { cn } from '@/utils';
-import type Lenis from '@studio-freight/lenis';
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiMenu, FiX } from "react-icons/fi";
+import { Button } from "@/components/ui";
+import { navigation, personal } from "@/data";
+import { useActiveSection } from "@/hooks";
+import { cn } from "@/utils";
+import type Lenis from "@studio-freight/lenis";
 
 declare global {
   interface Window {
@@ -24,8 +24,8 @@ export function Navbar() {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Close mobile menu on resize to desktop
@@ -36,34 +36,35 @@ export function Navbar() {
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
 
   const handleNavClick = useCallback((href: string) => {
     setIsMobileMenuOpen(false);
-    const targetId = href.replace('#', '');
+    const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
-    
+
     if (element) {
       if (window.lenis) {
         window.lenis.scrollTo(element, { offset: -80 });
       } else {
         const offset = 80;
-        const top = element.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        const top =
+          element.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
       }
     }
   }, []);
@@ -75,10 +76,10 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? 'bg-dark-bg/80 backdrop-blur-xl border-b border-white/5'
-            : 'bg-transparent'
+            ? "bg-dark-bg/80 backdrop-blur-xl border-b border-white/5"
+            : "bg-transparent",
         )}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,13 +89,13 @@ export function Navbar() {
               href="#home"
               onClick={(e) => {
                 e.preventDefault();
-                handleNavClick('#home');
+                handleNavClick("#home");
               }}
               className="text-lg sm:text-xl font-display font-bold text-gradient"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              {personal.name.split(' ')[0]}
+              {personal.name.split(" ")[0]}
               <span className="text-primary-400">.</span>
             </motion.a>
 
@@ -109,10 +110,10 @@ export function Navbar() {
                     handleNavClick(item.href);
                   }}
                   className={cn(
-                    'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+                    "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
                     activeSection === item.id
-                      ? 'text-primary-400 bg-primary-500/10'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5'
+                      ? "text-primary-400 bg-primary-500/10"
+                      : "text-gray-400 hover:text-white hover:bg-white/5",
                   )}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -129,7 +130,7 @@ export function Navbar() {
                 size="sm"
                 className="hidden md:flex"
                 onClick={() => {
-                  window.open('/resume.pdf', '_blank');
+                  window.open("/Harshavardhan_Resume.pdf", "_blank");
                 }}
               >
                 Resume
@@ -140,7 +141,7 @@ export function Navbar() {
                 className="md:hidden p-2 sm:p-2.5 rounded-lg bg-white/5 border border-white/10 touch-target"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 whileTap={{ scale: 0.95 }}
-                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
@@ -167,7 +168,7 @@ export function Navbar() {
               className="fixed inset-0 z-40 bg-dark-bg/60 backdrop-blur-sm md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            
+
             {/* Menu content */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -190,10 +191,10 @@ export function Navbar() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                       className={cn(
-                        'px-4 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-medium transition-all touch-target',
+                        "px-4 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-medium transition-all touch-target",
                         activeSection === item.id
-                          ? 'text-primary-400 bg-primary-500/10'
-                          : 'text-gray-400 active:text-white active:bg-white/10'
+                          ? "text-primary-400 bg-primary-500/10"
+                          : "text-gray-400 active:text-white active:bg-white/10",
                       )}
                     >
                       {item.label}
@@ -211,7 +212,7 @@ export function Navbar() {
                       className="mt-3 sm:mt-4"
                       onClick={() => {
                         setIsMobileMenuOpen(false);
-                        window.open('/resume.pdf', '_blank');
+                        window.open("/resume.pdf", "_blank");
                       }}
                     >
                       Download Resume
