@@ -292,7 +292,9 @@ export function Hero() {
                   icon={<FiDownload className="w-4 h-4 sm:w-5 sm:h-5" />}
                   fullWidth
                   className="sm:w-auto"
-                  onClick={() => window.open("/resume.pdf", "_blank")}
+                  onClick={() =>
+                    window.open("/Harshavardhan_Resume.pdf", "_blank")
+                  }
                 >
                   Resume
                 </Button>
