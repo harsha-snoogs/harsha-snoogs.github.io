@@ -40,7 +40,7 @@ function AnimatedCounter({
           });
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     observer.observe(ref.current);
@@ -79,7 +79,7 @@ function BentoStats() {
                 Years of Experience
               </p>
               <p className="text-4xl sm:text-5xl font-bold text-white">
-                <AnimatedCounter value="5" suffix="+" />
+                <AnimatedCounter value="6" suffix="+" />
               </p>
             </div>
             <div className="hidden sm:block">
@@ -198,7 +198,7 @@ export function Hero() {
         duration: 0.6,
         ease: "back.out(1.5)",
         delay: 0.3,
-      }
+      },
     );
   }, []);
 
@@ -369,7 +369,7 @@ export function Hero() {
                     >
                       {tech}
                     </motion.span>
-                  )
+                  ),
                 )}
               </motion.div>
             </motion.div>
